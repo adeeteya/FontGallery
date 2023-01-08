@@ -1,7 +1,10 @@
 # 📜🖼️ Font Gallery
 
-Font Gallery app made using Flutter showcases how different fonts look. Also shows how the different FontStyle's, FontWeight's and FontSize's appear.
-The Fonts are sourced from Google Fonts and even the Font Author information is displayed. You could also search for your favourite fonts.
+Font Gallery app showcases how different Font Families with their different variations (Style, Weight and Size) look. You could switch between light and dark modes and also compare different font families.
+
+There's a handy search feature to easily search for your favorite fonts and the text to compare the font's could also be changed to a custom user set text.
+
+The Fonts are sourced from Google Fonts and even the Font Author information is displayed.
 
 Please star⭐ the repo if you like what you see😊.
 
@@ -11,10 +14,10 @@ Please star⭐ the repo if you like what you see😊.
 
 ### Android
 
-[![Download apk](https://img.shields.io/badge/Download-apk-green)](https://github.com/adityar224/FontGallery/releases/download/1.0.0/FontGallery-Android.apk)
+[![Download apk](https://img.shields.io/badge/Download-apk-green)](https://github.com/adityar224/FontGallery/releases/download/1.1.1/FontGallery-Android.apk)
 
 ### Windows
-[![Download exe](https://img.shields.io/badge/Download-exe-blue)](https://github.com/adityar224/FontGallery/releases/download/1.0.0/FontGallery-Windows.exe)
+[![Download exe](https://img.shields.io/badge/Download-exe-blue)](https://github.com/adityar224/FontGallery/releases/download/1.1.1/FontGallery-Windows.exe)
 
 ## ✨ Features
 
@@ -26,11 +29,12 @@ Please star⭐ the repo if you like what you see😊.
 - [x] Display all the Font Weights
 - [x] Option to Display a different Font style
 - [x] Display Font Author Information
-- [ ] Compare Fonts
+- [x] Compare Fonts
 - [ ] Change Font Colors
+- [ ] Generate an Image for the font
 
 ## 📸 Screenshots
-<img alt="Light Mode Image" src="screenshots/app_screenshot_1.jpg" height="587px" width="256px"/> <img alt="Dark Mode Image" src="screenshots/app_screenshot_2.jpg" height="587px" width="256px"/> <img alt="Search Screen Image" src="screenshots/app_screenshot_3.jpg" height="587px" width="256px"/> <img alt="Input Text Image" src="screenshots/app_screenshot_4.jpg" height="587px" width="256px"/>
+<img alt="Light Mode Image" src="screenshots/app_screenshot_1.jpg" height="587px" width="256px"/> <img alt="Dark Mode Image" src="screenshots/app_screenshot_2.jpg" height="587px" width="256px"/> <img alt="Search Screen Image" src="screenshots/app_screenshot_3.jpg" height="587px" width="256px"/> <img alt="Input Text Image" src="screenshots/app_screenshot_4.jpg" height="587px" width="256px"/> <img alt="Input Text Image" src="screenshots/app_screenshot_5.jpg" height="587px" width="256px"/> <img alt="Input Text Image" src="screenshots/app_screenshot_6.jpg" height="587px" width="256px"/>
 
 ## 🔌 Plugins
 

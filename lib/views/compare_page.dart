@@ -3,20 +3,25 @@ import 'package:font_gallery/constants.dart';
 import 'package:font_gallery/controllers/home_controller.dart';
 import 'package:font_gallery/models/font_model.dart';
 
-class FontPage extends StatefulWidget {
-  const FontPage({Key? key, required this.fontModel, this.initialText})
-      : super(key: key);
+class CompareFontsPage extends StatefulWidget {
   final FontModel fontModel;
+  final FontModel fontModel2;
   final String? initialText;
+  const CompareFontsPage({
+    Key? key,
+    required this.fontModel,
+    required this.fontModel2,
+    this.initialText,
+  }) : super(key: key);
 
   @override
-  State<FontPage> createState() => _FontPageState();
+  State<CompareFontsPage> createState() => _CompareFontsPageState();
 }
 
-class _FontPageState extends State<FontPage> {
+class _CompareFontsPageState extends State<CompareFontsPage> {
   bool isItalic = false;
   bool isUnderlined = false;
-  double fontSize = 20;
+  double fontSize = 16;
 
   String getWeightText(FontWeight fontWeight) {
     switch (fontWeight) {
@@ -43,7 +48,7 @@ class _FontPageState extends State<FontPage> {
     }
   }
 
-  Widget fontTile(FontWeight fontWeight) {
+  Widget compareFontTile(FontWeight fontWeight) {
     final themeContext = Theme.of(context);
     return ValueListenableBuilder<String>(
       valueListenable: HomeController.displayText,
@@ -51,11 +56,19 @@ class _FontPageState extends State<FontPage> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Divider(height: 0),
+            const Divider(height: 0, thickness: 1),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
               child: Text(
                 getWeightText(fontWeight),
+                style: themeContext.textTheme.bodyMedium
+                    ?.copyWith(color: themeContext.textTheme.bodySmall?.color),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Text(
+                widget.fontModel.name,
                 style: themeContext.textTheme.bodyMedium
                     ?.copyWith(color: themeContext.textTheme.bodySmall?.color),
               ),
@@ -76,7 +89,31 @@ class _FontPageState extends State<FontPage> {
                 maxLines: 3,
               ),
             ),
-            const Divider(height: 0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Text(
+                widget.fontModel2.name,
+                style: themeContext.textTheme.bodyMedium
+                    ?.copyWith(color: themeContext.textTheme.bodySmall?.color),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8, 0, 8, 20),
+              child: Text(
+                value,
+                style: widget.fontModel2.textStyle().copyWith(
+                      fontSize: fontSize,
+                      fontWeight: fontWeight,
+                      fontStyle:
+                          (isItalic) ? FontStyle.italic : FontStyle.normal,
+                      decoration: (isUnderlined)
+                          ? TextDecoration.underline
+                          : TextDecoration.none,
+                    ),
+                maxLines: 3,
+              ),
+            ),
+            const Divider(height: 0, thickness: 1),
           ],
         );
       },
@@ -91,7 +128,7 @@ class _FontPageState extends State<FontPage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text(widget.fontModel.name),
+          title: const Text("Compare Fonts"),
           actions: [
             IconButton(
               onPressed: () {
@@ -137,7 +174,7 @@ class _FontPageState extends State<FontPage> {
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
+              padding: const EdgeInsets.fromLTRB(4, 0, 4, 15),
               child: Row(
                 children: [
                   Flexible(
@@ -195,14 +232,13 @@ class _FontPageState extends State<FontPage> {
                 ],
               ),
             ),
-            const SizedBox(height: 15),
-            fontTile(FontWeight.w300),
-            fontTile(FontWeight.w400),
-            fontTile(FontWeight.w500),
-            fontTile(FontWeight.w600),
-            fontTile(FontWeight.w700),
-            fontTile(FontWeight.w800),
-            fontTile(FontWeight.w900),
+            compareFontTile(FontWeight.w300),
+            compareFontTile(FontWeight.w400),
+            compareFontTile(FontWeight.w500),
+            compareFontTile(FontWeight.w600),
+            compareFontTile(FontWeight.w700),
+            compareFontTile(FontWeight.w800),
+            compareFontTile(FontWeight.w900),
           ],
         ),
       ),
