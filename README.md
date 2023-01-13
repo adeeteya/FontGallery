@@ -14,6 +14,10 @@ Please star⭐ the repo if you like what you see😊.
 
 ### Android
 
+[<img alt='Get it on Google Play' src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="250">](https://play.google.com/store/apps/details?id=com.adeeteya.font_gallery&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1)
+
+(or)
+
 [![Download apk](https://img.shields.io/badge/Download-apk-green)](https://github.com/adityar224/FontGallery/releases/download/1.1.1/FontGallery-Android.apk)
 
 ### Windows
