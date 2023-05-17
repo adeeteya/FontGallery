@@ -1,36 +1,34 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:font_gallery/controllers/settings_controller.dart';
+import 'package:font_gallery/views/compare_page.dart';
 
-class CompareButton extends StatelessWidget {
-  final String? fontName;
-  final String? fontName2;
-  final VoidCallback removeSelectedFont;
-  final VoidCallback removeSelectedFont2;
-  final VoidCallback onPressed;
-
-  const CompareButton(
-      {Key? key,
-      this.fontName,
-      this.fontName2,
-      required this.removeSelectedFont,
-      required this.removeSelectedFont2,
-      required this.onPressed})
-      : super(key: key);
+class CompareButton extends ConsumerWidget {
+  const CompareButton({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final themeContext = Theme.of(context);
+    final settingsModel = ref.watch(settingsProvider);
+    if (settingsModel.selectedFontModel == null &&
+        settingsModel.selectedFontModel2 == null) {
+      return const Offstage();
+    }
     return FloatingActionButton.extended(
       label: Row(
         children: [
-          if (fontName != null)
+          if (settingsModel.selectedFontModel != null)
             GestureDetector(
-              onTap: removeSelectedFont,
+              onTap: () =>
+                  ref.read(settingsProvider.notifier).removeSelectedFontModel(),
               child: Stack(
                 children: [
                   CircleAvatar(
                     backgroundColor: themeContext.scaffoldBackgroundColor,
                     child: Text(
-                      fontName ?? "",
+                      settingsModel.selectedFontModel?.name.substring(0, 3) ??
+                          "",
                       style: const TextStyle(fontSize: 12),
                     ),
                   ),
@@ -50,15 +48,18 @@ class CompareButton extends StatelessWidget {
               ),
             ),
           const SizedBox(width: 5),
-          if (fontName2 != null)
+          if (settingsModel.selectedFontModel2 != null)
             GestureDetector(
-              onTap: removeSelectedFont2,
+              onTap: () => ref
+                  .read(settingsProvider.notifier)
+                  .removeSelectedFontModel2(),
               child: Stack(
                 children: [
                   CircleAvatar(
                     backgroundColor: themeContext.scaffoldBackgroundColor,
                     child: Text(
-                      fontName2 ?? "",
+                      settingsModel.selectedFontModel2?.name.substring(0, 3) ??
+                          "",
                       style: const TextStyle(fontSize: 12),
                     ),
                   ),
@@ -81,20 +82,32 @@ class CompareButton extends StatelessWidget {
           Text(
             "Compare",
             style: TextStyle(
-              color: (fontName == null || fontName2 == null)
+              color: (settingsModel.selectedFontModel == null ||
+                      settingsModel.selectedFontModel2 == null)
                   ? Colors.grey.shade400
                   : null,
             ),
           ),
           Icon(
             Icons.chevron_right,
-            color: (fontName == null || fontName2 == null)
+            color: (settingsModel.selectedFontModel == null ||
+                    settingsModel.selectedFontModel2 == null)
                 ? Colors.grey.shade400
                 : null,
           ),
         ],
       ),
-      onPressed: (fontName == null || fontName2 == null) ? null : onPressed,
+      onPressed: (settingsModel.selectedFontModel == null ||
+              settingsModel.selectedFontModel2 == null)
+          ? null
+          : () {
+              Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => const CompareFontsPage(),
+                ),
+              );
+            },
     );
   }
 }

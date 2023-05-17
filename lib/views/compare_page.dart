@@ -2,16 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_gallery/constants.dart';
 import 'package:font_gallery/controllers/settings_controller.dart';
-import 'package:font_gallery/models/font_model.dart';
 
 class CompareFontsPage extends ConsumerStatefulWidget {
-  final FontModel fontModel;
-  final FontModel fontModel2;
-  const CompareFontsPage({
-    Key? key,
-    required this.fontModel,
-    required this.fontModel2,
-  }) : super(key: key);
+  const CompareFontsPage({Key? key}) : super(key: key);
 
   @override
   ConsumerState createState() => _CompareFontsPageState();
@@ -66,7 +59,7 @@ class _CompareFontsPageState extends ConsumerState<CompareFontsPage> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Text(
-            widget.fontModel.name,
+            ref.read(settingsProvider).selectedFontModel?.name ?? "",
             style: themeContext.textTheme.bodyMedium
                 ?.copyWith(color: themeContext.textTheme.bodySmall?.color),
           ),
@@ -75,7 +68,11 @@ class _CompareFontsPageState extends ConsumerState<CompareFontsPage> {
           padding: const EdgeInsets.fromLTRB(8, 0, 8, 20),
           child: Text(
             displayText,
-            style: widget.fontModel.textStyle().copyWith(
+            style: ref
+                .read(settingsProvider)
+                .selectedFontModel
+                ?.textStyle()
+                .copyWith(
                   fontSize: fontSize,
                   fontWeight: fontWeight,
                   fontStyle: (isItalic) ? FontStyle.italic : FontStyle.normal,
@@ -89,7 +86,7 @@ class _CompareFontsPageState extends ConsumerState<CompareFontsPage> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Text(
-            widget.fontModel2.name,
+            ref.read(settingsProvider).selectedFontModel2?.name ?? "",
             style: themeContext.textTheme.bodyMedium
                 ?.copyWith(color: themeContext.textTheme.bodySmall?.color),
           ),
@@ -98,7 +95,11 @@ class _CompareFontsPageState extends ConsumerState<CompareFontsPage> {
           padding: const EdgeInsets.fromLTRB(8, 0, 8, 20),
           child: Text(
             displayText,
-            style: widget.fontModel2.textStyle().copyWith(
+            style: ref
+                .read(settingsProvider)
+                .selectedFontModel2
+                ?.textStyle()
+                .copyWith(
                   fontSize: fontSize,
                   fontWeight: fontWeight,
                   fontStyle: (isItalic) ? FontStyle.italic : FontStyle.normal,
@@ -174,7 +175,13 @@ class _CompareFontsPageState extends ConsumerState<CompareFontsPage> {
                   Flexible(
                     flex: 7,
                     child: TextFormField(
-                      initialValue: ref.read(settingsProvider).displayText,
+                      initialValue: (ref
+                                  .read(settingsProvider)
+                                  .displayText
+                                  .compareTo(kDefaultText) ==
+                              0)
+                          ? null
+                          : ref.read(settingsProvider).displayText,
                       decoration: kInputTextFormDecoration,
                       onChanged: (val) {
                         ref

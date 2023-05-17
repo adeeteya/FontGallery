@@ -6,20 +6,12 @@ import 'package:font_gallery/models/font_model.dart';
 import 'package:font_gallery/views/font_page.dart';
 
 class FontCard extends ConsumerWidget {
-  const FontCard(
-      {Key? key,
-      required this.fontModel,
-      required this.isSelected,
-      required this.onCompareAction})
-      : super(key: key);
+  const FontCard({Key? key, required this.fontModel}) : super(key: key);
   final FontModel fontModel;
-  final bool isSelected;
-  final VoidCallback onCompareAction;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final themeContext = Theme.of(context);
-    final String displayText =
-        ref.watch(settingsProvider.select((value) => value.displayText));
+    final settingsModel = ref.watch(settingsProvider);
     return InkWell(
       borderRadius: BorderRadius.circular(6),
       onTap: () {
@@ -55,8 +47,13 @@ class FontCard extends ConsumerWidget {
                   ],
                 ),
                 IconButton(
-                  onPressed: onCompareAction,
-                  icon: (isSelected)
+                  onPressed: () => ref
+                      .read(settingsProvider.notifier)
+                      .onFontCardAction(fontModel),
+                  icon: (settingsModel.selectedFontModel?.name ==
+                              fontModel.name ||
+                          settingsModel.selectedFontModel2?.name ==
+                              fontModel.name)
                       ? const Icon(Icons.remove)
                       : const Icon(Icons.add),
                 ),
@@ -64,7 +61,7 @@ class FontCard extends ConsumerWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              displayText,
+              settingsModel.displayText,
               style: fontModel.textStyle().copyWith(fontSize: 20),
               maxLines: 3,
             ),
