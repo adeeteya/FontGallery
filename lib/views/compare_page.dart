@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_gallery/constants.dart';
-import 'package:font_gallery/controllers/home_controller.dart';
+import 'package:font_gallery/controllers/settings_controller.dart';
 import 'package:font_gallery/models/font_model.dart';
 
-class CompareFontsPage extends StatefulWidget {
+class CompareFontsPage extends ConsumerStatefulWidget {
   final FontModel fontModel;
   final FontModel fontModel2;
-  final String? initialText;
   const CompareFontsPage({
     Key? key,
     required this.fontModel,
     required this.fontModel2,
-    this.initialText,
   }) : super(key: key);
 
   @override
-  State<CompareFontsPage> createState() => _CompareFontsPageState();
+  ConsumerState createState() => _CompareFontsPageState();
 }
 
-class _CompareFontsPageState extends State<CompareFontsPage> {
+class _CompareFontsPageState extends ConsumerState<CompareFontsPage> {
   bool isItalic = false;
   bool isUnderlined = false;
   double fontSize = 16;
@@ -49,74 +48,69 @@ class _CompareFontsPageState extends State<CompareFontsPage> {
   }
 
   Widget compareFontTile(FontWeight fontWeight) {
-    final themeContext = Theme.of(context);
-    return ValueListenableBuilder<String>(
-      valueListenable: HomeController.displayText,
-      builder: (context, value, _) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Divider(height: 0, thickness: 1),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
-              child: Text(
-                getWeightText(fontWeight),
-                style: themeContext.textTheme.bodyMedium
-                    ?.copyWith(color: themeContext.textTheme.bodySmall?.color),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Text(
-                widget.fontModel.name,
-                style: themeContext.textTheme.bodyMedium
-                    ?.copyWith(color: themeContext.textTheme.bodySmall?.color),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8, 0, 8, 20),
-              child: Text(
-                value,
-                style: widget.fontModel.textStyle().copyWith(
-                      fontSize: fontSize,
-                      fontWeight: fontWeight,
-                      fontStyle:
-                          (isItalic) ? FontStyle.italic : FontStyle.normal,
-                      decoration: (isUnderlined)
-                          ? TextDecoration.underline
-                          : TextDecoration.none,
-                    ),
-                maxLines: 3,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Text(
-                widget.fontModel2.name,
-                style: themeContext.textTheme.bodyMedium
-                    ?.copyWith(color: themeContext.textTheme.bodySmall?.color),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8, 0, 8, 20),
-              child: Text(
-                value,
-                style: widget.fontModel2.textStyle().copyWith(
-                      fontSize: fontSize,
-                      fontWeight: fontWeight,
-                      fontStyle:
-                          (isItalic) ? FontStyle.italic : FontStyle.normal,
-                      decoration: (isUnderlined)
-                          ? TextDecoration.underline
-                          : TextDecoration.none,
-                    ),
-                maxLines: 3,
-              ),
-            ),
-            const Divider(height: 0, thickness: 1),
-          ],
-        );
-      },
+    final ThemeData themeContext = Theme.of(context);
+    final String displayText =
+        ref.watch(settingsProvider.select((value) => value.displayText));
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Divider(height: 0, thickness: 1),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+          child: Text(
+            getWeightText(fontWeight),
+            style: themeContext.textTheme.bodyMedium
+                ?.copyWith(color: themeContext.textTheme.bodySmall?.color),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Text(
+            widget.fontModel.name,
+            style: themeContext.textTheme.bodyMedium
+                ?.copyWith(color: themeContext.textTheme.bodySmall?.color),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(8, 0, 8, 20),
+          child: Text(
+            displayText,
+            style: widget.fontModel.textStyle().copyWith(
+                  fontSize: fontSize,
+                  fontWeight: fontWeight,
+                  fontStyle: (isItalic) ? FontStyle.italic : FontStyle.normal,
+                  decoration: (isUnderlined)
+                      ? TextDecoration.underline
+                      : TextDecoration.none,
+                ),
+            maxLines: 3,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Text(
+            widget.fontModel2.name,
+            style: themeContext.textTheme.bodyMedium
+                ?.copyWith(color: themeContext.textTheme.bodySmall?.color),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(8, 0, 8, 20),
+          child: Text(
+            displayText,
+            style: widget.fontModel2.textStyle().copyWith(
+                  fontSize: fontSize,
+                  fontWeight: fontWeight,
+                  fontStyle: (isItalic) ? FontStyle.italic : FontStyle.normal,
+                  decoration: (isUnderlined)
+                      ? TextDecoration.underline
+                      : TextDecoration.none,
+                ),
+            maxLines: 3,
+          ),
+        ),
+        const Divider(height: 0, thickness: 1),
+      ],
     );
   }
 
@@ -180,10 +174,12 @@ class _CompareFontsPageState extends State<CompareFontsPage> {
                   Flexible(
                     flex: 7,
                     child: TextFormField(
-                      initialValue: widget.initialText,
+                      initialValue: ref.read(settingsProvider).displayText,
                       decoration: kInputTextFormDecoration,
                       onChanged: (val) {
-                        HomeController().changeDisplayText(val);
+                        ref
+                            .read(settingsProvider.notifier)
+                            .changeDisplayText(val);
                       },
                     ),
                   ),

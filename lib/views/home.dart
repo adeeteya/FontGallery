@@ -1,6 +1,5 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_gallery/constants.dart';
-import 'package:font_gallery/controllers/home_controller.dart';
 import 'package:font_gallery/models/font_model.dart';
 import 'package:font_gallery/views/compare_page.dart';
 import 'package:font_gallery/views/font_search_delegate.dart';
@@ -101,23 +100,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       });
                     },
                     onPressed: () {
-                      Navigator.of(context).push(
-                        PageRouteBuilder(
-                          pageBuilder: (context, animation, secondAnimation) =>
-                              SlideTransition(
-                            position: Tween<Offset>(
-                              begin: const Offset(1, 0),
-                              end: Offset.zero,
-                            ).animate(animation),
-                            child: CompareFontsPage(
-                              fontModel: selectedFontModel!,
-                              fontModel2: selectedFontModel2!,
-                              initialText: (HomeController.displayText.value
-                                          .compareTo(kDefaultText) ==
-                                      0
-                                  ? null
-                                  : HomeController.displayText.value),
-                            ),
+                      Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                          builder: (context) => CompareFontsPage(
+                            fontModel: selectedFontModel!,
+                            fontModel2: selectedFontModel2!,
                           ),
                         ),
                       );

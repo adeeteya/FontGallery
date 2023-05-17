@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_gallery/constants.dart';
-import 'package:font_gallery/controllers/home_controller.dart';
+import 'package:font_gallery/controllers/settings_controller.dart';
 import 'package:font_gallery/models/font_model.dart';
 
-class FontPage extends StatefulWidget {
-  const FontPage({Key? key, required this.fontModel, this.initialText})
-      : super(key: key);
+class FontPage extends ConsumerStatefulWidget {
   final FontModel fontModel;
-  final String? initialText;
+  const FontPage({Key? key, required this.fontModel}) : super(key: key);
 
   @override
-  State<FontPage> createState() => _FontPageState();
+  ConsumerState createState() => _FontPageState();
 }
 
-class _FontPageState extends State<FontPage> {
+class _FontPageState extends ConsumerState<FontPage> {
   bool isItalic = false;
   bool isUnderlined = false;
   double fontSize = 20;
@@ -45,50 +44,44 @@ class _FontPageState extends State<FontPage> {
 
   Widget fontTile(FontWeight fontWeight) {
     final themeContext = Theme.of(context);
-    return ValueListenableBuilder<String>(
-      valueListenable: HomeController.displayText,
-      builder: (context, value, _) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Divider(height: 0),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
-              child: Text(
-                getWeightText(fontWeight),
-                style: themeContext.textTheme.bodyMedium
-                    ?.copyWith(color: themeContext.textTheme.bodySmall?.color),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8, 0, 8, 20),
-              child: Text(
-                value,
-                style: widget.fontModel.textStyle().copyWith(
-                      fontSize: fontSize,
-                      fontWeight: fontWeight,
-                      fontStyle:
-                          (isItalic) ? FontStyle.italic : FontStyle.normal,
-                      decoration: (isUnderlined)
-                          ? TextDecoration.underline
-                          : TextDecoration.none,
-                    ),
-                maxLines: 3,
-              ),
-            ),
-            const Divider(height: 0),
-          ],
-        );
-      },
+    final String displayText =
+        ref.watch(settingsProvider.select((value) => value.displayText));
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Divider(height: 0),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+          child: Text(
+            getWeightText(fontWeight),
+            style: themeContext.textTheme.bodyMedium
+                ?.copyWith(color: themeContext.textTheme.bodySmall?.color),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(8, 0, 8, 20),
+          child: Text(
+            displayText,
+            style: widget.fontModel.textStyle().copyWith(
+                  fontSize: fontSize,
+                  fontWeight: fontWeight,
+                  fontStyle: (isItalic) ? FontStyle.italic : FontStyle.normal,
+                  decoration: (isUnderlined)
+                      ? TextDecoration.underline
+                      : TextDecoration.none,
+                ),
+            maxLines: 3,
+          ),
+        ),
+        const Divider(height: 0),
+      ],
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-      },
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         appBar: AppBar(
           title: Text(widget.fontModel.name),
@@ -143,10 +136,12 @@ class _FontPageState extends State<FontPage> {
                   Flexible(
                     flex: 7,
                     child: TextFormField(
-                      initialValue: widget.initialText,
+                      initialValue: ref.read(settingsProvider).displayText,
                       decoration: kInputTextFormDecoration,
                       onChanged: (val) {
-                        HomeController().changeDisplayText(val);
+                        ref
+                            .read(settingsProvider.notifier)
+                            .changeDisplayText(val);
                       },
                     ),
                   ),

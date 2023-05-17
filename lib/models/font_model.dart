@@ -108,8 +108,6 @@ class FontModel {
         return GoogleFonts.andadaPro();
       case 'Andika':
         return GoogleFonts.andika();
-      case 'Andika New Basic':
-        return GoogleFonts.andikaNewBasic();
       case 'Anek Bangla':
         return GoogleFonts.anekBangla();
       case 'Anek Devanagari':
@@ -852,8 +850,6 @@ class FontModel {
         return GoogleFonts.gemunuLibre();
       case 'Genos':
         return GoogleFonts.genos();
-      case 'Gentium Basic':
-        return GoogleFonts.gentiumBasic();
       case 'Gentium Book Basic':
         return GoogleFonts.gentiumBookBasic();
       case 'Geo':
@@ -1154,8 +1150,6 @@ class FontModel {
         return GoogleFonts.kavivanar();
       case 'Kavoon':
         return GoogleFonts.kavoon();
-      case 'Kdam Thmor':
-        return GoogleFonts.kdamThmor();
       case 'Keania One':
         return GoogleFonts.keaniaOne();
       case 'Kelly Slab':
@@ -2008,8 +2002,6 @@ class FontModel {
         return GoogleFonts.originalSurfer();
       case 'Oswald':
         return GoogleFonts.oswald();
-      case 'Otomanopee One':
-        return GoogleFonts.otomanopeeOne();
       case 'Outfit':
         return GoogleFonts.outfit();
       case 'Over the Rainbow':
@@ -2050,8 +2042,6 @@ class FontModel {
         return GoogleFonts.palanquin();
       case 'Palanquin Dark':
         return GoogleFonts.palanquinDark();
-      case 'Palette Mosaic':
-        return GoogleFonts.paletteMosaic();
       case 'Pangolin':
         return GoogleFonts.pangolin();
       case 'Paprika':
@@ -2272,8 +2262,6 @@ class FontModel {
         return GoogleFonts.robotoSlab();
       case 'Rochester':
         return GoogleFonts.rochester();
-      case 'Rock 3D':
-        return GoogleFonts.rock3d();
       case 'Rock Salt':
         return GoogleFonts.rockSalt();
       case 'RocknRoll One':
@@ -2420,8 +2408,6 @@ class FontModel {
         return GoogleFonts.shipporiMincho();
       case 'Shippori Mincho B1':
         return GoogleFonts.shipporiMinchoB1();
-      case 'Shizuru':
-        return GoogleFonts.shizuru();
       case 'Shojumaru':
         return GoogleFonts.shojumaru();
       case 'Short Stack':
@@ -2760,10 +2746,6 @@ class FontModel {
         return GoogleFonts.yrsa();
       case 'Yuji Boku':
         return GoogleFonts.yujiBoku();
-      case 'Yuji Hentaigana Akari':
-        return GoogleFonts.yujiHentaiganaAkari();
-      case 'Yuji Hentaigana Akebono':
-        return GoogleFonts.yujiHentaiganaAkebono();
       case 'Yuji Mai':
         return GoogleFonts.yujiMai();
       case 'Yuji Syuku':

@@ -39,7 +39,7 @@ class CompareButton extends StatelessWidget {
                     top: 0,
                     child: CircleAvatar(
                       radius: 8,
-                      backgroundColor: themeContext.backgroundColor,
+                      backgroundColor: themeContext.colorScheme.background,
                       child: const Icon(
                         Icons.remove,
                         size: 12,
@@ -67,7 +67,7 @@ class CompareButton extends StatelessWidget {
                     top: 0,
                     child: CircleAvatar(
                       radius: 8,
-                      backgroundColor: themeContext.backgroundColor,
+                      backgroundColor: themeContext.colorScheme.background,
                       child: const Icon(
                         Icons.remove,
                         size: 12,

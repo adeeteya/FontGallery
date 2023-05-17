@@ -18,10 +18,10 @@ Please star⭐ the repo if you like what you see😊.
 
 (or)
 
-[![Download apk](https://img.shields.io/badge/Download-apk-green)](https://github.com/adityar224/FontGallery/releases/download/1.1.1/FontGallery-Android.apk)
+[![Download apk](https://img.shields.io/badge/Download-apk-green)](https://github.com/adityar224/FontGallery/releases/download/1.1.3/FontGallery-Android.apk)
 
 ### Windows
-[![Download exe](https://img.shields.io/badge/Download-exe-blue)](https://github.com/adityar224/FontGallery/releases/download/1.1.1/FontGallery-Windows.exe)
+[![Download exe](https://img.shields.io/badge/Download-exe-blue)](https://github.com/adityar224/FontGallery/releases/download/1.1.3/FontGallery-Windows.exe)
 
 ## ✨ Features
 
@@ -36,6 +36,7 @@ Please star⭐ the repo if you like what you see😊.
 - [x] Compare Fonts
 - [ ] Change Font Colors
 - [ ] Generate an Image for the font
+- [ ] Multi-Language Support
 
 ## 📸 Screenshots
 <img alt="Light Mode Image" src="screenshots/app_screenshot_1.jpg" height="587px" width="256px"/> <img alt="Dark Mode Image" src="screenshots/app_screenshot_2.jpg" height="587px" width="256px"/> <img alt="Search Screen Image" src="screenshots/app_screenshot_3.jpg" height="587px" width="256px"/> <img alt="Input Text Image" src="screenshots/app_screenshot_4.jpg" height="587px" width="256px"/> <img alt="Input Text Image" src="screenshots/app_screenshot_5.jpg" height="587px" width="256px"/> <img alt="Input Text Image" src="screenshots/app_screenshot_6.jpg" height="587px" width="256px"/>
@@ -48,14 +49,14 @@ Please star⭐ the repo if you like what you see😊.
 | [**flutter_lints**](https://pub.dev/packages/flutter_lints) | For linting |
 | [**lottie**](https://pub.dev/packages/lottie) | For Theme Switch Animation |
 | [**google_fonts**](https://pub.dev/packages/google_fonts) | For downloading the different fonts |
-| [**flutter_native_splash**](https://pub.dev/packages/flutter_native_splash) | To show the splash screen |
+| [**flutter_riverpod**](https://pub.dev/packages/flutter_riverpod) | For managing the state |
 
 ## 🤓 Author
 
 **[Aditya R](https://github.com/adityar224)**
 
 ## 🔖 LICENSE
-Copyright (c) 2022 **[Aditya R](https://github.com/adityar224)**
+Copyright (c) 2023 **[Aditya R](https://github.com/adityar224)**
 [MIT LICENSE](https://github.com/adityar224/FontGallery/blob/master/LICENSE)
 
 ## 🙏 Attributions

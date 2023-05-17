@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:font_gallery/controllers/home_controller.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:font_gallery/controllers/settings_controller.dart';
 import 'package:lottie/lottie.dart';
 
-class ThemeModeToggle extends StatefulWidget {
-  const ThemeModeToggle({Key? key}) : super(key: key);
+class ThemeModeToggle extends ConsumerStatefulWidget {
+  const ThemeModeToggle({
+    Key? key,
+  }) : super(key: key);
 
   @override
-  State<ThemeModeToggle> createState() => _ThemeModeToggleState();
+  ConsumerState createState() => _ThemeModeToggleState();
 }
 
-class _ThemeModeToggleState extends State<ThemeModeToggle>
+class _ThemeModeToggleState extends ConsumerState<ThemeModeToggle>
     with SingleTickerProviderStateMixin {
   late final AnimationController animationController;
   late bool isDark;
   @override
   void initState() {
     animationController = AnimationController(vsync: this);
-    isDark = HomeController.isDarkMode.value;
+    isDark = ref.read(settingsProvider.select((value) => value.isDark));
     if (isDark) {
       animationController
         ..duration = const Duration(seconds: 0)
@@ -31,16 +34,16 @@ class _ThemeModeToggleState extends State<ThemeModeToggle>
     super.dispose();
   }
 
-  Future switchTheme() async {
+  Future<void> switchTheme() async {
     if (animationController.isAnimating) {
-      return null;
+      return;
     }
     if (animationController.isCompleted) {
       animationController.reverse();
     } else {
       animationController.forward();
     }
-    HomeController().switchTheme();
+    await ref.read(settingsProvider.notifier).switchTheme();
   }
 
   @override
