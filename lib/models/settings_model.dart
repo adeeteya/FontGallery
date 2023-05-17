@@ -10,14 +10,9 @@ class SettingsModel {
       this.selectedFontModel2);
 
   SettingsModel copyWith(
-      {bool? isDark,
-      String? displayText,
-      FontModel? selectedFontModel,
-      FontModel? selectedFontModel2}) {
-    return SettingsModel(
-        isDark ?? this.isDark,
-        displayText ?? this.displayText,
-        selectedFontModel ?? this.selectedFontModel,
-        selectedFontModel2 ?? this.selectedFontModel);
+      FontModel? selectedFontModel, FontModel? selectedFontModel2,
+      {bool? isDark, String? displayText}) {
+    return SettingsModel(isDark ?? this.isDark, displayText ?? this.displayText,
+        selectedFontModel, selectedFontModel2);
   }
 }

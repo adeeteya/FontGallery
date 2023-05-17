@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:font_gallery/models/font_model.dart';
+import 'package:font_gallery/widgets/compare_button.dart';
 import 'package:font_gallery/widgets/font_card.dart';
 
 class FontSearchDelegate extends SearchDelegate {
@@ -16,12 +17,7 @@ class FontSearchDelegate extends SearchDelegate {
     "(≥o≤)",
     "(='X'=)",
   ];
-
-  FontModel? selectedFontModel;
-  FontModel? selectedFontModel2;
-  final ValueChanged<FontModel> onCompareActionIndex;
-  FontSearchDelegate(this.selectedFontModel, this.selectedFontModel2,
-      this.onCompareActionIndex);
+  FontSearchDelegate();
 
   @override
   List<Widget>? buildActions(BuildContext context) {
@@ -80,34 +76,33 @@ class FontSearchDelegate extends SearchDelegate {
         ),
       );
     } else {
-      return StatefulBuilder(builder: (context, setState) {
-        return ListView.separated(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
-          itemCount: resultsList.length,
-          itemBuilder: (context, index) => FontCard(
-            fontModel: resultsList[index],
-            isSelected: (selectedFontModel == resultsList[index] ||
-                selectedFontModel2 == resultsList[index]),
-            onCompareAction: () {
-              onCompareActionIndex(resultsList[index]);
-              if (selectedFontModel == resultsList[index]) {
-                selectedFontModel = null;
-              } else if (selectedFontModel2 == resultsList[index]) {
-                selectedFontModel2 = null;
-              } else {
-                //add
-                if (selectedFontModel == null) {
-                  selectedFontModel = resultsList[index];
-                } else if (selectedFontModel2 == null) {
-                  selectedFontModel2 = resultsList[index];
-                } else {}
-              }
-              setState(() {});
-            },
-          ),
-          separatorBuilder: (context, index) => const SizedBox(height: 8),
-        );
-      });
+      return SafeArea(
+        bottom: true,
+        child: StatefulBuilder(
+          builder: (context, setState) {
+            return Stack(
+              children: [
+                ListView.separated(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+                  itemCount: resultsList.length,
+                  itemBuilder: (context, index) =>
+                      FontCard(fontModel: resultsList[index]),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 8),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(bottom: 16),
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: CompareButton(),
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
+      );
     }
   }
 

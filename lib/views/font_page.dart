@@ -136,7 +136,13 @@ class _FontPageState extends ConsumerState<FontPage> {
                   Flexible(
                     flex: 7,
                     child: TextFormField(
-                      initialValue: ref.read(settingsProvider).displayText,
+                      initialValue: (ref
+                                  .read(settingsProvider)
+                                  .displayText
+                                  .compareTo(kDefaultText) ==
+                              0)
+                          ? null
+                          : ref.read(settingsProvider).displayText,
                       decoration: kInputTextFormDecoration,
                       onChanged: (val) {
                         ref
