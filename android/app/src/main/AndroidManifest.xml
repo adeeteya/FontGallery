@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.aditya.font_gallery">
+    package="com.adeeteya.font_gallery">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="Font Gallery"

@@ -6,7 +6,7 @@ import 'package:font_gallery/models/font_model.dart';
 import 'package:font_gallery/views/font_page.dart';
 
 class FontCard extends ConsumerWidget {
-  const FontCard({Key? key, required this.fontModel}) : super(key: key);
+  const FontCard({super.key, required this.fontModel});
   final FontModel fontModel;
   @override
   Widget build(BuildContext context, WidgetRef ref) {

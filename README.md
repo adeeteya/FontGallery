@@ -18,10 +18,10 @@ Please star⭐ the repo if you like what you see😊.
 
 (or)
 
-[![Download apk](https://img.shields.io/badge/Download-apk-green)](https://github.com/adityar224/FontGallery/releases/download/1.2.0/FontGallery-Android.apk)
+[![Download apk](https://img.shields.io/badge/Download-apk-green)](https://github.com/adityar224/FontGallery/releases/download/1.2.1/FontGallery-Android.apk)
 
 ### Windows
-[![Download exe](https://img.shields.io/badge/Download-exe-blue)](https://github.com/adityar224/FontGallery/releases/download/1.2.0/FontGallery-Windows.exe)
+[![Download exe](https://img.shields.io/badge/Download-exe-blue)](https://github.com/adityar224/FontGallery/releases/download/1.2.1/FontGallery-Windows.exe)
 
 ## ✨ Features
 
@@ -43,13 +43,13 @@ Please star⭐ the repo if you like what you see😊.
 
 ## 🔌 Plugins
 
-| Name | Usage |
-| - | - |
-| [**shared_preferences**](https://pub.dev/packages/shared_preferences) | To store theme mode preference |
-| [**flutter_lints**](https://pub.dev/packages/flutter_lints) | For linting |
-| [**lottie**](https://pub.dev/packages/lottie) | For Theme Switch Animation |
-| [**google_fonts**](https://pub.dev/packages/google_fonts) | For downloading the different fonts |
-| [**flutter_riverpod**](https://pub.dev/packages/flutter_riverpod) | For managing the state |
+| Name                                                                  | Usage                               |
+|-----------------------------------------------------------------------|-------------------------------------|
+| [**shared_preferences**](https://pub.dev/packages/shared_preferences) | To store theme mode preference      |
+| [**flutter_lints**](https://pub.dev/packages/flutter_lints)           | For linting                         |
+| [**lottie**](https://pub.dev/packages/lottie)                         | For Theme Switch Animation          |
+| [**google_fonts**](https://pub.dev/packages/google_fonts)             | For downloading the different fonts |
+| [**flutter_riverpod**](https://pub.dev/packages/flutter_riverpod)     | For managing the state              |
 
 ## 🤓 Author
 

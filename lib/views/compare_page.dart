@@ -4,7 +4,7 @@ import 'package:font_gallery/constants.dart';
 import 'package:font_gallery/controllers/settings_controller.dart';
 
 class CompareFontsPage extends ConsumerStatefulWidget {
-  const CompareFontsPage({Key? key}) : super(key: key);
+  const CompareFontsPage({super.key});
 
   @override
   ConsumerState createState() => _CompareFontsPageState();

@@ -4,9 +4,7 @@ import 'package:font_gallery/controllers/settings_controller.dart';
 import 'package:lottie/lottie.dart';
 
 class ThemeModeToggle extends ConsumerStatefulWidget {
-  const ThemeModeToggle({
-    Key? key,
-  }) : super(key: key);
+  const ThemeModeToggle({super.key});
 
   @override
   ConsumerState createState() => _ThemeModeToggleState();

@@ -164,8 +164,8 @@ class FontModel {
         return GoogleFonts.areYouSerious();
       case 'Aref Ruqaa':
         return GoogleFonts.arefRuqaa();
-      case 'Arima Madurai':
-        return GoogleFonts.arimaMadurai();
+      case 'Arima':
+        return GoogleFonts.arima();
       case 'Arimo':
         return GoogleFonts.arimo();
       case 'Arizonia':
@@ -517,7 +517,7 @@ class FontModel {
       case 'Coda':
         return GoogleFonts.coda();
       case 'Coda Caption':
-        return GoogleFonts.codaCaption();
+        return GoogleFonts.coda();
       case 'Codystar':
         return GoogleFonts.codystar();
       case 'Coiny':
@@ -808,8 +808,6 @@ class FontModel {
         return GoogleFonts.frederickaTheGreat();
       case 'Fredoka':
         return GoogleFonts.fredoka();
-      case 'Fredoka One':
-        return GoogleFonts.fredokaOne();
       case 'Freehand':
         return GoogleFonts.freehand();
       case 'Fresca':
@@ -850,8 +848,8 @@ class FontModel {
         return GoogleFonts.gemunuLibre();
       case 'Genos':
         return GoogleFonts.genos();
-      case 'Gentium Book Basic':
-        return GoogleFonts.gentiumBookBasic();
+      case 'Gentium Book Plus':
+        return GoogleFonts.gentiumBookPlus();
       case 'Geo':
         return GoogleFonts.geo();
       case 'Georama':
@@ -1134,8 +1132,8 @@ class FontModel {
         return GoogleFonts.kameron();
       case 'Kanit':
         return GoogleFonts.kanit();
-      case 'Kantumruy':
-        return GoogleFonts.kantumruy();
+      case 'Kantumruy Pro':
+        return GoogleFonts.kantumruyPro();
       case 'Karantina':
         return GoogleFonts.karantina();
       case 'Karla':
@@ -1430,8 +1428,6 @@ class FontModel {
         return GoogleFonts.meowScript();
       case 'Merienda':
         return GoogleFonts.merienda();
-      case 'Merienda One':
-        return GoogleFonts.meriendaOne();
       case 'Merriweather':
         return GoogleFonts.merriweather();
       case 'Merriweather Sans':
@@ -1925,7 +1921,7 @@ class FontModel {
       case 'Noto Serif Myanmar':
         return GoogleFonts.notoSerifMyanmar();
       case 'Noto Serif Nyiakeng Puachue Hmong':
-        return GoogleFonts.notoSerifNyiakengPuachueHmong();
+        return GoogleFonts.notoSerifNpHmong();
       case 'Noto Serif Sinhala':
         return GoogleFonts.notoSerifSinhala();
       case 'Noto Serif Tamil':
@@ -2473,11 +2469,9 @@ class FontModel {
       case 'Source Sans 3':
         return GoogleFonts.sourceSans3();
       case 'Source Sans Pro':
-        return GoogleFonts.sourceSansPro();
+        return GoogleFonts.sourceSans3();
       case 'Source Serif 4':
         return GoogleFonts.sourceSerif4();
-      case 'Source Serif Pro':
-        return GoogleFonts.sourceSerifPro();
       case 'Space Grotesk':
         return GoogleFonts.spaceGrotesk();
       case 'Space Mono':

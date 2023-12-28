@@ -5,7 +5,7 @@ import 'package:font_gallery/controllers/settings_controller.dart';
 import 'package:font_gallery/views/compare_page.dart';
 
 class CompareButton extends ConsumerWidget {
-  const CompareButton({Key? key}) : super(key: key);
+  const CompareButton({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

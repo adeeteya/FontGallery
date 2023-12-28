@@ -1,4 +1,4 @@
-package com.aditya.font_gallery
+package com.adeeteya.font_gallery
 
 import io.flutter.embedding.android.FlutterActivity
 

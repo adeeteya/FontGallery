@@ -6,7 +6,7 @@ import 'package:font_gallery/models/font_model.dart';
 
 class FontPage extends ConsumerStatefulWidget {
   final FontModel fontModel;
-  const FontPage({Key? key, required this.fontModel}) : super(key: key);
+  const FontPage({super.key, required this.fontModel});
 
   @override
   ConsumerState createState() => _FontPageState();

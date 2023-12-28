@@ -20,7 +20,7 @@ Future<void> main() async {
 }
 
 class FontGalleryApp extends ConsumerWidget {
-  const FontGalleryApp({Key? key}) : super(key: key);
+  const FontGalleryApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

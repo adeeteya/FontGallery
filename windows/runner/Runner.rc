@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.aditya" "\0"
+            VALUE "CompanyName", "com.adeeteya" "\0"
             VALUE "FileDescription", "font_gallery" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "font_gallery" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 com.aditya. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2022 com.adeeteya. All rights reserved." "\0"
             VALUE "OriginalFilename", "font_gallery.exe" "\0"
             VALUE "ProductName", "font_gallery" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"

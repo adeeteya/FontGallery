@@ -1,23 +1,23 @@
 name: font_gallery
 description: An app which showcases the different fonts
 publish_to: 'none'
-version: 1.2.0+5
+version: 1.2.1+6
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: '>=3.2.3 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  shared_preferences: ^2.1.1
-  lottie: ^2.3.2
-  google_fonts: ^4.0.4
-  flutter_riverpod: ^2.3.6
+  shared_preferences: ^2.2.2
+  lottie: ^2.7.0
+  google_fonts: ^6.1.0
+  flutter_riverpod: ^2.4.9
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
+  flutter_lints: ^3.0.1
 
 flutter:
   uses-material-design: true
