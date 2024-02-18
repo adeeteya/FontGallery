@@ -10,7 +10,7 @@ Please star⭐ the repo if you like what you see😊.
 
 ## 💻 Installation and Usage
 
-### [Click here to visit the website version](https://adityar224.github.io/FontGallery/#/)
+### [Click here to visit the website version](https://adeeteya.github.io/FontGallery/#/)
 
 ### Android
 
@@ -18,10 +18,10 @@ Please star⭐ the repo if you like what you see😊.
 
 (or)
 
-[![Download apk](https://img.shields.io/badge/Download-apk-green)](https://github.com/adityar224/FontGallery/releases/download/1.2.1/FontGallery-Android.apk)
+[![Download apk](https://img.shields.io/badge/Download-apk-green)](https://github.com/adeeteya/FontGallery/releases/download/1.2.1/FontGallery-Android.apk)
 
 ### Windows
-[![Download exe](https://img.shields.io/badge/Download-exe-blue)](https://github.com/adityar224/FontGallery/releases/download/1.2.1/FontGallery-Windows.exe)
+[![Download exe](https://img.shields.io/badge/Download-exe-blue)](https://github.com/adeeteya/FontGallery/releases/download/1.2.1/FontGallery-Windows.exe)
 
 ## ✨ Features
 
@@ -53,11 +53,11 @@ Please star⭐ the repo if you like what you see😊.
 
 ## 🤓 Author
 
-**[Aditya R](https://github.com/adityar224)**
+**[Aditya R](https://github.com/adeeteya)**
 
 ## 🔖 LICENSE
-Copyright (c) 2023 **[Aditya R](https://github.com/adityar224)**
-[MIT LICENSE](https://github.com/adityar224/FontGallery/blob/master/LICENSE)
+Copyright (c) 2023 **[Aditya R](https://github.com/adeeteya)**
+[MIT LICENSE](https://github.com/adeeteya/FontGallery/blob/master/LICENSE)
 
 ## 🙏 Attributions
 <a href="https://www.flaticon.com/free-icons/font-size" title="font size icons">Font size icons created by Freepik - Flaticon</a>
