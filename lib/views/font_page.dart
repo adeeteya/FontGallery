@@ -44,8 +44,9 @@ class _FontPageState extends ConsumerState<FontPage> {
 
   Widget fontTile(FontWeight fontWeight) {
     final themeContext = Theme.of(context);
-    final String displayText =
-        ref.watch(settingsProvider.select((value) => value.displayText));
+    final String displayText = ref.watch(
+      settingsProvider.select((value) => value.displayText),
+    );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -54,8 +55,9 @@ class _FontPageState extends ConsumerState<FontPage> {
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
           child: Text(
             getWeightText(fontWeight),
-            style: themeContext.textTheme.bodyMedium
-                ?.copyWith(color: themeContext.textTheme.bodySmall?.color),
+            style: themeContext.textTheme.bodyMedium?.copyWith(
+              color: themeContext.textTheme.bodySmall?.color,
+            ),
           ),
         ),
         Padding(
@@ -63,13 +65,12 @@ class _FontPageState extends ConsumerState<FontPage> {
           child: Text(
             displayText,
             style: widget.fontModel.textStyle().copyWith(
-                  fontSize: fontSize,
-                  fontWeight: fontWeight,
-                  fontStyle: (isItalic) ? FontStyle.italic : FontStyle.normal,
-                  decoration: (isUnderlined)
-                      ? TextDecoration.underline
-                      : TextDecoration.none,
-                ),
+              fontSize: fontSize,
+              fontWeight: fontWeight,
+              fontStyle: isItalic ? FontStyle.italic : FontStyle.normal,
+              decoration:
+                  isUnderlined ? TextDecoration.underline : TextDecoration.none,
+            ),
             maxLines: 3,
           ),
         ),
@@ -94,15 +95,13 @@ class _FontPageState extends ConsumerState<FontPage> {
               },
               tooltip: "Italics",
               isSelected: isItalic,
-              icon: const Icon(
-                Icons.format_italic,
-                color: Colors.grey,
-              ),
+              icon: const Icon(Icons.format_italic, color: Colors.grey),
               selectedIcon: Icon(
                 Icons.format_italic,
-                color: Theme.of(context).brightness == Brightness.light
-                    ? Colors.black
-                    : Colors.white,
+                color:
+                    Theme.of(context).brightness == Brightness.light
+                        ? Colors.black
+                        : Colors.white,
               ),
             ),
             IconButton(
@@ -113,15 +112,13 @@ class _FontPageState extends ConsumerState<FontPage> {
               },
               tooltip: "Underline",
               isSelected: isUnderlined,
-              icon: const Icon(
-                Icons.format_underline,
-                color: Colors.grey,
-              ),
+              icon: const Icon(Icons.format_underline, color: Colors.grey),
               selectedIcon: Icon(
                 Icons.format_underlined,
-                color: Theme.of(context).brightness == Brightness.light
-                    ? Colors.black
-                    : Colors.white,
+                color:
+                    Theme.of(context).brightness == Brightness.light
+                        ? Colors.black
+                        : Colors.white,
               ),
             ),
           ],
@@ -136,13 +133,14 @@ class _FontPageState extends ConsumerState<FontPage> {
                   Flexible(
                     flex: 7,
                     child: TextFormField(
-                      initialValue: (ref
-                                  .read(settingsProvider)
-                                  .displayText
-                                  .compareTo(kDefaultText) ==
-                              0)
-                          ? null
-                          : ref.read(settingsProvider).displayText,
+                      initialValue:
+                          (ref
+                                      .read(settingsProvider)
+                                      .displayText
+                                      .compareTo(kDefaultText) ==
+                                  0)
+                              ? null
+                              : ref.read(settingsProvider).displayText,
                       decoration: kInputTextFormDecoration,
                       onChanged: (val) {
                         ref
@@ -162,34 +160,13 @@ class _FontPageState extends ConsumerState<FontPage> {
                         });
                       },
                       items: const [
-                        DropdownMenuItem(
-                          value: 12,
-                          child: Text("12"),
-                        ),
-                        DropdownMenuItem(
-                          value: 14,
-                          child: Text("14"),
-                        ),
-                        DropdownMenuItem(
-                          value: 16,
-                          child: Text("16"),
-                        ),
-                        DropdownMenuItem(
-                          value: 18,
-                          child: Text("18"),
-                        ),
-                        DropdownMenuItem(
-                          value: 20,
-                          child: Text("20"),
-                        ),
-                        DropdownMenuItem(
-                          value: 22,
-                          child: Text("22"),
-                        ),
-                        DropdownMenuItem(
-                          value: 24,
-                          child: Text("24"),
-                        ),
+                        DropdownMenuItem(value: 12, child: Text("12")),
+                        DropdownMenuItem(value: 14, child: Text("14")),
+                        DropdownMenuItem(value: 16, child: Text("16")),
+                        DropdownMenuItem(value: 18, child: Text("18")),
+                        DropdownMenuItem(value: 20, child: Text("20")),
+                        DropdownMenuItem(value: 22, child: Text("22")),
+                        DropdownMenuItem(value: 24, child: Text("24")),
                       ],
                     ),
                   ),

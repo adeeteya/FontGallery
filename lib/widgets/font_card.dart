@@ -14,8 +14,8 @@ class FontCard extends ConsumerWidget {
     final settingsModel = ref.watch(settingsProvider);
     return InkWell(
       borderRadius: BorderRadius.circular(6),
-      onTap: () {
-        Navigator.push(
+      onTap: () async {
+        await Navigator.push(
           context,
           CupertinoPageRoute(
             builder: (context) => FontPage(fontModel: fontModel),
@@ -37,25 +37,30 @@ class FontCard extends ConsumerWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(fontModel.name,
-                        style: themeContext.textTheme.titleMedium),
+                    Text(
+                      fontModel.name,
+                      style: themeContext.textTheme.titleMedium,
+                    ),
                     Text(
                       fontModel.author,
                       style: themeContext.textTheme.bodyMedium?.copyWith(
-                          color: themeContext.textTheme.bodySmall?.color),
+                        color: themeContext.textTheme.bodySmall?.color,
+                      ),
                     ),
                   ],
                 ),
                 IconButton(
-                  onPressed: () => ref
-                      .read(settingsProvider.notifier)
-                      .onFontCardAction(fontModel),
-                  icon: (settingsModel.selectedFontModel?.name ==
-                              fontModel.name ||
-                          settingsModel.selectedFontModel2?.name ==
-                              fontModel.name)
-                      ? const Icon(Icons.remove)
-                      : const Icon(Icons.add),
+                  onPressed:
+                      () => ref
+                          .read(settingsProvider.notifier)
+                          .onFontCardAction(fontModel),
+                  icon:
+                      (settingsModel.selectedFontModel?.name ==
+                                  fontModel.name ||
+                              settingsModel.selectedFontModel2?.name ==
+                                  fontModel.name)
+                          ? const Icon(Icons.remove)
+                          : const Icon(Icons.add),
                 ),
               ],
             ),

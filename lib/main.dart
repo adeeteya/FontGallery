@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_gallery/constants.dart';
 import 'package:font_gallery/controllers/settings_controller.dart';
 import 'package:font_gallery/views/home.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter/services.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,12 +24,13 @@ class FontGalleryApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final bool isDark =
-        ref.watch(settingsProvider.select((value) => value.isDark));
+    final bool isDark = ref.watch(
+      settingsProvider.select((value) => value.isDark),
+    );
     return MaterialApp(
       title: 'Font Gallery',
       debugShowCheckedModeBanner: false,
-      themeMode: (isDark) ? ThemeMode.dark : ThemeMode.light,
+      themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
       theme: ThemeData(
         useMaterial3: true,
         brightness: Brightness.light,
@@ -44,17 +45,11 @@ class FontGalleryApp extends ConsumerWidget {
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: ButtonStyle(
-            side: MaterialStateProperty.all(
-              const BorderSide(
-                color: Colors.indigo,
-                width: 1.0,
-                style: BorderStyle.solid,
-              ),
+            side: WidgetStateProperty.all(
+              const BorderSide(color: Colors.indigo),
             ),
-            shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
+            shape: WidgetStateProperty.all(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
             ),
           ),
         ),
@@ -81,17 +76,11 @@ class FontGalleryApp extends ConsumerWidget {
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: ButtonStyle(
-            side: MaterialStateProperty.all(
-              const BorderSide(
-                color: Colors.indigo,
-                width: 1.0,
-                style: BorderStyle.solid,
-              ),
+            side: WidgetStateProperty.all(
+              const BorderSide(color: Colors.indigo),
             ),
-            shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
+            shape: WidgetStateProperty.all(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
             ),
           ),
         ),

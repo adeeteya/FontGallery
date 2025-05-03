@@ -20,8 +20,11 @@ class CompareButton extends ConsumerWidget {
         children: [
           if (settingsModel.selectedFontModel != null)
             GestureDetector(
-              onTap: () =>
-                  ref.read(settingsProvider.notifier).removeSelectedFontModel(),
+              onTap:
+                  () =>
+                      ref
+                          .read(settingsProvider.notifier)
+                          .removeSelectedFontModel(),
               child: Stack(
                 children: [
                   CircleAvatar(
@@ -37,11 +40,8 @@ class CompareButton extends ConsumerWidget {
                     top: 0,
                     child: CircleAvatar(
                       radius: 8,
-                      backgroundColor: themeContext.colorScheme.background,
-                      child: const Icon(
-                        Icons.remove,
-                        size: 12,
-                      ),
+                      backgroundColor: themeContext.colorScheme.surface,
+                      child: const Icon(Icons.remove, size: 12),
                     ),
                   ),
                 ],
@@ -50,9 +50,11 @@ class CompareButton extends ConsumerWidget {
           const SizedBox(width: 5),
           if (settingsModel.selectedFontModel2 != null)
             GestureDetector(
-              onTap: () => ref
-                  .read(settingsProvider.notifier)
-                  .removeSelectedFontModel2(),
+              onTap:
+                  () =>
+                      ref
+                          .read(settingsProvider.notifier)
+                          .removeSelectedFontModel2(),
               child: Stack(
                 children: [
                   CircleAvatar(
@@ -68,11 +70,8 @@ class CompareButton extends ConsumerWidget {
                     top: 0,
                     child: CircleAvatar(
                       radius: 8,
-                      backgroundColor: themeContext.colorScheme.background,
-                      child: const Icon(
-                        Icons.remove,
-                        size: 12,
-                      ),
+                      backgroundColor: themeContext.colorScheme.surface,
+                      child: const Icon(Icons.remove, size: 12),
                     ),
                   ),
                 ],
@@ -82,32 +81,35 @@ class CompareButton extends ConsumerWidget {
           Text(
             "Compare",
             style: TextStyle(
-              color: (settingsModel.selectedFontModel == null ||
-                      settingsModel.selectedFontModel2 == null)
-                  ? Colors.grey.shade400
-                  : null,
+              color:
+                  (settingsModel.selectedFontModel == null ||
+                          settingsModel.selectedFontModel2 == null)
+                      ? Colors.grey.shade400
+                      : null,
             ),
           ),
           Icon(
             Icons.chevron_right,
-            color: (settingsModel.selectedFontModel == null ||
-                    settingsModel.selectedFontModel2 == null)
-                ? Colors.grey.shade400
-                : null,
+            color:
+                (settingsModel.selectedFontModel == null ||
+                        settingsModel.selectedFontModel2 == null)
+                    ? Colors.grey.shade400
+                    : null,
           ),
         ],
       ),
-      onPressed: (settingsModel.selectedFontModel == null ||
-              settingsModel.selectedFontModel2 == null)
-          ? null
-          : () {
-              Navigator.push(
-                context,
-                CupertinoPageRoute(
-                  builder: (context) => const CompareFontsPage(),
-                ),
-              );
-            },
+      onPressed:
+          (settingsModel.selectedFontModel == null ||
+                  settingsModel.selectedFontModel2 == null)
+              ? null
+              : () async {
+                await Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (context) => const CompareFontsPage(),
+                  ),
+                );
+              },
     );
   }
 }

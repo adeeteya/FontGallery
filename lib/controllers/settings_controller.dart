@@ -14,7 +14,8 @@ class SharedPrefs {
 }
 
 final settingsProvider = NotifierProvider<SettingsController, SettingsModel>(
-    () => SettingsController());
+  SettingsController.new,
+);
 
 class SettingsController extends Notifier<SettingsModel> {
   @override
@@ -31,18 +32,27 @@ class SettingsController extends Notifier<SettingsModel> {
   bool lastSelectedFirstPosition = true;
 
   Future<void> switchTheme() async {
-    state = state.copyWith(state.selectedFontModel, state.selectedFontModel2,
-        isDark: !state.isDark);
+    state = state.copyWith(
+      state.selectedFontModel,
+      state.selectedFontModel2,
+      isDark: !state.isDark,
+    );
     await SharedPrefs.prefs.setBool("isDarkMode", state.isDark);
   }
 
   void changeDisplayText(String newText) {
     if (newText.isEmpty) {
-      state = state.copyWith(state.selectedFontModel, state.selectedFontModel2,
-          displayText: kDefaultText);
+      state = state.copyWith(
+        state.selectedFontModel,
+        state.selectedFontModel2,
+        displayText: kDefaultText,
+      );
     } else {
-      state = state.copyWith(state.selectedFontModel, state.selectedFontModel2,
-          displayText: newText);
+      state = state.copyWith(
+        state.selectedFontModel,
+        state.selectedFontModel2,
+        displayText: newText,
+      );
     }
   }
 

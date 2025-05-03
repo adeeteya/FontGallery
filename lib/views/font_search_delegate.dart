@@ -24,13 +24,13 @@ class FontSearchDelegate extends SearchDelegate {
     return (query.isEmpty)
         ? null
         : [
-            IconButton(
-              onPressed: () {
-                query = "";
-              },
-              icon: const Icon(Icons.clear),
-            ),
-          ];
+          IconButton(
+            onPressed: () {
+              query = "";
+            },
+            icon: const Icon(Icons.clear),
+          ),
+        ];
   }
 
   @override
@@ -45,12 +45,15 @@ class FontSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    List resultsList = fontList
-        .where((element) =>
-            element.name.toLowerCase().contains(query.toLowerCase()))
-        .toList();
+    final List resultsList =
+        fontList
+            .where(
+              (element) =>
+                  element.name.toLowerCase().contains(query.toLowerCase()),
+            )
+            .toList();
     if (resultsList.isEmpty) {
-      int randomEmptyResultIndex = Random().nextInt(10);
+      final int randomEmptyResultIndex = Random().nextInt(10);
       return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -60,10 +63,7 @@ class FontSearchDelegate extends SearchDelegate {
               style: const TextStyle(fontSize: 80),
             ),
             const SizedBox(height: 20),
-            const Text(
-              "Can't find any fonts.",
-              style: TextStyle(fontSize: 20),
-            ),
+            const Text("Can't find any fonts.", style: TextStyle(fontSize: 20)),
             const SizedBox(height: 20),
             OutlinedButton(
               onPressed: () {
@@ -77,19 +77,21 @@ class FontSearchDelegate extends SearchDelegate {
       );
     } else {
       return SafeArea(
-        bottom: true,
         child: StatefulBuilder(
           builder: (context, setState) {
             return Stack(
               children: [
                 ListView.separated(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 8,
+                  ),
                   itemCount: resultsList.length,
-                  itemBuilder: (context, index) =>
-                      FontCard(fontModel: resultsList[index]),
-                  separatorBuilder: (context, index) =>
-                      const SizedBox(height: 8),
+                  itemBuilder:
+                      (context, index) =>
+                          FontCard(fontModel: resultsList[index]),
+                  separatorBuilder:
+                      (context, index) => const SizedBox(height: 8),
                 ),
                 const Padding(
                   padding: EdgeInsets.only(bottom: 16),

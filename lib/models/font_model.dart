@@ -3488,7 +3488,9 @@ List<FontModel> fontList = [
   FontModel("Source Serif 4", "KineticPlasma Fonts"),
   FontModel("Stalemate", "Astigmatic One Eye Typographic Institute"),
   FontModel(
-      "Stint Ultra Condensed", "Astigmatic One Eye Typographic Institute"),
+    "Stint Ultra Condensed",
+    "Astigmatic One Eye Typographic Institute",
+  ),
   FontModel("Stint Ultra Expanded", "Astigmatic One Eye Typographic Institute"),
   FontModel("Stoke", "Stoke Studio"),
   FontModel("Strait", "Eduardo Tunni"),

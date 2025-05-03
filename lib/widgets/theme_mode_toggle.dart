@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_gallery/controllers/settings_controller.dart';
@@ -20,7 +22,7 @@ class _ThemeModeToggleState extends ConsumerState<ThemeModeToggle>
     isDark = ref.read(settingsProvider.select((value) => value.isDark));
     if (isDark) {
       animationController
-        ..duration = const Duration(seconds: 0)
+        ..duration = Duration.zero
         ..forward();
     }
     super.initState();
@@ -37,9 +39,9 @@ class _ThemeModeToggleState extends ConsumerState<ThemeModeToggle>
       return;
     }
     if (animationController.isCompleted) {
-      animationController.reverse();
+      unawaited(animationController.reverse());
     } else {
-      animationController.forward();
+      unawaited(animationController.forward());
     }
     await ref.read(settingsProvider.notifier).switchTheme();
   }

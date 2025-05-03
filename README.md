@@ -14,14 +14,14 @@ Please star⭐ the repo if you like what you see😊.
 
 ### Android
 
-[<img alt='Get it on Google Play' src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="250">](https://play.google.com/store/apps/details?id=com.adeeteya.font_gallery&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1)
+[<img alt='Get it on Google Play' src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height="80">](https://play.google.com/store/apps/details?id=com.adeeteya.font_gallery)
 
 (or)
 
-[![Download apk](https://img.shields.io/badge/Download-apk-green)](https://github.com/adeeteya/FontGallery/releases/download/1.2.1/FontGallery-Android.apk)
+[![Download apk](https://img.shields.io/badge/Download-apk-green)](https://github.com/adeeteya/FontGallery/releases/latest/download/FontGallery-Android.apk)
 
 ### Windows
-[![Download exe](https://img.shields.io/badge/Download-exe-blue)](https://github.com/adeeteya/FontGallery/releases/download/1.2.1/FontGallery-Windows.exe)
+[![Download exe](https://img.shields.io/badge/Download-exe-blue)](https://github.com/adeeteya/FontGallery/releases/latest/download/FontGallery-Windows.exe)
 
 ## ✨ Features
 

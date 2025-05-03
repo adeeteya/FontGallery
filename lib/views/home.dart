@@ -13,11 +13,8 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {
-            showSearch(
-              context: context,
-              delegate: FontSearchDelegate(),
-            );
+          onPressed: () async {
+            await showSearch(context: context, delegate: FontSearchDelegate());
           },
           icon: const Icon(Icons.search),
         ),
