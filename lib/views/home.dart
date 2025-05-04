@@ -17,6 +17,7 @@ class Home extends StatelessWidget {
             await showSearch(context: context, delegate: FontSearchDelegate());
           },
           icon: const Icon(Icons.search),
+          tooltip: "Search",
         ),
         title: const Text("Font Gallery"),
         bottom: const PreferredSize(

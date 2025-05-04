@@ -10,18 +10,43 @@ Please star⭐ the repo if you like what you see😊.
 
 ## 💻 Installation and Usage
 
-### [Click here to visit the website version](https://adeeteya.github.io/FontGallery/#/)
+<table>
+  <tr>
+    <th>Platform</th>
+    <th>Installation Links</th>
+  </tr>
+  <tr>
+    <td>Android</td>
+    <td>
+      <a href="https://play.google.com/store/apps/details?id=com.adeeteya.font_gallery">
+        <img height="80" alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png">
+      </a>
+      <br>
+      <a href="https://github.com/adeeteya/FontGallery/releases/latest/download/FontGallery-Android.apk">
+        <img width="220" alt="APK download" src="https://img.shields.io/static/v1?label=Download&message=Android+.apk&color=2ea44f&style=for-the-badge&logo=Android&logoColor=white&logoSize=auto">
+      </a>
+    </td>
+  </tr>
 
-### Android
+  <tr>
+      <td>Windows</td>
+      <td>
+        <a href="https://github.com/adeeteya/FontGallery/releases/latest/download/FontGallery-Windows.exe">
+          <img width="220" alt="Windows App" src="https://img.shields.io/static/v1?label=Download&message=Windows+App&color=blue&style=for-the-badge&logo=webtrees&logoColor=white&logoSize=auto">
+        </a>
+      </td>
+  </tr>
 
-[<img alt='Get it on Google Play' src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height="80">](https://play.google.com/store/apps/details?id=com.adeeteya.font_gallery)
+  <tr>
+      <td>Web App</td>
+      <td>
+        <a href="https://adeeteya.github.io/FontGallery/#/">
+          <img width="220" alt="Web App" src="https://img.shields.io/static/v1?label=Webapp&message=Visit+Website&color=blueviolet&style=for-the-badge&logo=googlechrome&logoColor=white&logoSize=auto">
+        </a>
+      </td>
+  </tr>
 
-(or)
-
-[![Download apk](https://img.shields.io/badge/Download-apk-green)](https://github.com/adeeteya/FontGallery/releases/latest/download/FontGallery-Android.apk)
-
-### Windows
-[![Download exe](https://img.shields.io/badge/Download-exe-blue)](https://github.com/adeeteya/FontGallery/releases/latest/download/FontGallery-Windows.exe)
+</table>
 
 ## ✨ Features
 

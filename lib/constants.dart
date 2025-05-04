@@ -31,7 +31,8 @@ const kInputTextFormDecoration = InputDecoration(
   ),
 );
 const kDropdownButtonDecoration = InputDecoration(
-  prefixIcon: Icon(Icons.format_size),
+  prefixIcon: Center(child: Icon(Icons.format_size)),
+  prefixIconConstraints: BoxConstraints(maxWidth: 32, maxHeight: 24),
   border: UnderlineInputBorder(
     borderSide: BorderSide.none,
     borderRadius: BorderRadius.only(

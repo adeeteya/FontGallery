@@ -28,6 +28,7 @@ class FontSearchDelegate extends SearchDelegate {
             onPressed: () {
               query = "";
             },
+            tooltip: "Clear",
             icon: const Icon(Icons.clear),
           ),
         ];
@@ -39,6 +40,7 @@ class FontSearchDelegate extends SearchDelegate {
       onPressed: () {
         close(context, null);
       },
+      tooltip: "Back",
       icon: const Icon(Icons.arrow_back),
     );
   }
@@ -55,24 +57,31 @@ class FontSearchDelegate extends SearchDelegate {
     if (resultsList.isEmpty) {
       final int randomEmptyResultIndex = Random().nextInt(10);
       return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              emptySearchResultEmojis[randomEmptyResultIndex],
-              style: const TextStyle(fontSize: 80),
-            ),
-            const SizedBox(height: 20),
-            const Text("Can't find any fonts.", style: TextStyle(fontSize: 20)),
-            const SizedBox(height: 20),
-            OutlinedButton(
-              onPressed: () {
-                query = "";
-                showSuggestions(context);
-              },
-              child: const Text("Clear your filters and try again"),
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                emptySearchResultEmojis[randomEmptyResultIndex],
+                style: const TextStyle(fontSize: 80),
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                "We couldn't find any fonts matching that. Maybe try a different search?",
+                style: TextStyle(fontSize: 20),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 20),
+              OutlinedButton(
+                onPressed: () {
+                  query = "";
+                  showSuggestions(context);
+                },
+                child: const Text("Clear your filters and try again"),
+              ),
+            ],
+          ),
         ),
       );
     } else {

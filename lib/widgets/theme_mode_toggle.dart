@@ -48,9 +48,10 @@ class _ThemeModeToggleState extends ConsumerState<ThemeModeToggle>
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: switchTheme,
-      child: Lottie.asset(
+    return IconButton(
+      onPressed: switchTheme,
+      tooltip: "Switch Theme",
+      icon: Lottie.asset(
         "assets/theme_switch.json",
         controller: animationController,
         onLoaded: (composition) {

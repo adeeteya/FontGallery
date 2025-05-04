@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_gallery/constants.dart';
 import 'package:font_gallery/controllers/settings_controller.dart';
+import 'package:font_gallery/helpers.dart';
 
 class CompareFontsPage extends ConsumerStatefulWidget {
   const CompareFontsPage({super.key});
@@ -15,31 +16,6 @@ class _CompareFontsPageState extends ConsumerState<CompareFontsPage> {
   bool isUnderlined = false;
   double fontSize = 16;
 
-  String getWeightText(FontWeight fontWeight) {
-    switch (fontWeight) {
-      case FontWeight.w100:
-        return "Thin 100";
-      case FontWeight.w200:
-        return "ExtraLight 200";
-      case FontWeight.w300:
-        return "Light 300";
-      case FontWeight.w400:
-        return "Regular 400";
-      case FontWeight.w500:
-        return "Medium 500";
-      case FontWeight.w600:
-        return "SemiBold 600";
-      case FontWeight.w700:
-        return "Bold 700";
-      case FontWeight.w800:
-        return "ExtraBold 800";
-      case FontWeight.w900:
-        return "Black 900";
-      default:
-        return "Regular 400";
-    }
-  }
-
   Widget compareFontTile(FontWeight fontWeight) {
     final ThemeData themeContext = Theme.of(context);
     final String displayText = ref.watch(
@@ -52,7 +28,7 @@ class _CompareFontsPageState extends ConsumerState<CompareFontsPage> {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
           child: Text(
-            getWeightText(fontWeight),
+            Helpers.getWeightText(fontWeight),
             style: themeContext.textTheme.bodyMedium?.copyWith(
               color: themeContext.textTheme.bodySmall?.color,
             ),
@@ -209,8 +185,10 @@ class _CompareFontsPageState extends ConsumerState<CompareFontsPage> {
                         DropdownMenuItem(value: 16, child: Text("16")),
                         DropdownMenuItem(value: 18, child: Text("18")),
                         DropdownMenuItem(value: 20, child: Text("20")),
-                        DropdownMenuItem(value: 22, child: Text("22")),
                         DropdownMenuItem(value: 24, child: Text("24")),
+                        DropdownMenuItem(value: 32, child: Text("32")),
+                        DropdownMenuItem(value: 48, child: Text("48")),
+                        DropdownMenuItem(value: 64, child: Text("64")),
                       ],
                     ),
                   ),

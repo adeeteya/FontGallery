@@ -8,12 +8,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.transparent,
-      statusBarColor: Colors.transparent,
-    ),
-  );
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
   await SharedPrefs().initPrefs();
   runApp(const ProviderScope(child: FontGalleryApp()));
@@ -27,6 +21,25 @@ class FontGalleryApp extends ConsumerWidget {
     final bool isDark = ref.watch(
       settingsProvider.select((value) => value.isDark),
     );
+    if (isDark) {
+      SystemChrome.setSystemUIOverlayStyle(
+        const SystemUiOverlayStyle(
+          statusBarColor: kDarkScaffoldColor,
+          systemNavigationBarColor: kDarkScaffoldColor,
+          statusBarIconBrightness: Brightness.light,
+          systemNavigationBarIconBrightness: Brightness.light,
+        ),
+      );
+    } else {
+      SystemChrome.setSystemUIOverlayStyle(
+        const SystemUiOverlayStyle(
+          statusBarColor: Colors.white,
+          systemNavigationBarColor: Colors.white,
+          statusBarIconBrightness: Brightness.dark,
+          systemNavigationBarIconBrightness: Brightness.dark,
+        ),
+      );
+    }
     return MaterialApp(
       title: 'Font Gallery',
       debugShowCheckedModeBanner: false,
