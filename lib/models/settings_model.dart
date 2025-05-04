@@ -26,4 +26,22 @@ class SettingsModel {
       selectedFontModel2,
     );
   }
+
+  @override
+  String toString() {
+    return 'SettingsModel{isDark: $isDark, displayText: $displayText, selectedFontModel: $selectedFontModel, selectedFontModel2: $selectedFontModel2}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is SettingsModel &&
+        isDark == other.isDark &&
+        displayText == other.displayText &&
+        selectedFontModel == other.selectedFontModel &&
+        selectedFontModel2 == other.selectedFontModel2;
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(isDark, displayText, selectedFontModel, selectedFontModel2);
 }

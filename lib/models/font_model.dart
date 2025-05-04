@@ -6,6 +6,19 @@ class FontModel {
   final String author;
   FontModel(this.name, this.author);
 
+  @override
+  String toString() {
+    return 'Font Model:- $name by $author';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FontModel && other.name == name && other.author == author;
+  }
+
+  @override
+  int get hashCode => Object.hash(name, author);
+
   TextStyle textStyle() {
     switch (name) {
       case 'ABeeZee':
