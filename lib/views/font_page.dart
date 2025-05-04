@@ -47,7 +47,6 @@ class _FontPageState extends ConsumerState<FontPage> {
               decoration:
                   isUnderlined ? TextDecoration.underline : TextDecoration.none,
             ),
-            maxLines: 3,
           ),
         ),
         const Divider(height: 0),

@@ -60,7 +60,6 @@ class _CompareFontsPageState extends ConsumerState<CompareFontsPage> {
                           ? TextDecoration.underline
                           : TextDecoration.none,
                 ),
-            maxLines: 3,
           ),
         ),
         Padding(
@@ -89,7 +88,6 @@ class _CompareFontsPageState extends ConsumerState<CompareFontsPage> {
                           ? TextDecoration.underline
                           : TextDecoration.none,
                 ),
-            maxLines: 3,
           ),
         ),
         const Divider(height: 0, thickness: 1),
