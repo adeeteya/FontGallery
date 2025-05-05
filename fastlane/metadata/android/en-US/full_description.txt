@@ -1,0 +1,5 @@
+Font Gallery app showcases how different Font Families with their different variations (Style, Weight and Size) look. You could switch between light and dark modes and also compare different font families.
+
+There's a handy search feature to easily search for your favorite fonts and the text to compare the font's could also be changed to a custom user set text.
+
+The Fonts are sourced from Google Fonts and even the Font Author information is displayed.
