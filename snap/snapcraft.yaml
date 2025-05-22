@@ -1,0 +1,35 @@
+name: font-gallery
+version: 1.3.0
+summary: An app which showcases and compares different fonts
+description: Font Gallery app showcases how different Font Families with their different variations (Style, Weight and Size) look. You could switch between light and dark modes and also compare different font families. There's a handy search feature to easily search for your favorite fonts and the text to compare the font's could also be changed to a custom user set text.
+icon: snap/gui/font-gallery.png
+contact: mailto:adeeteya@gmail.com
+source-code: https://github.com/adeeteya/FontGallery
+issues: https://github.com/adeeteya/FontGallery/issues
+license: MIT
+
+confinement: strict
+base: core22
+grade: stable
+
+slots:
+  font-gallery:
+    interface: dbus
+    bus: session
+    name: com.adeeteya.font_gallery
+
+apps:
+  font-gallery:
+    command: font_gallery
+    extensions: [gnome]
+    plugs:
+      - network
+      - desktop
+      - home
+    slots:
+      - font-gallery
+parts:
+  font-gallery:
+    source: .
+    plugin: flutter
+    flutter-target: lib/main.dart
