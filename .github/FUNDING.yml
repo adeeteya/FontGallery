@@ -1,5 +1,15 @@
-github: [adeeteya]
+# These are supported funding model platforms
+
+github: adeeteya
 patreon: adeeteya
+open_collective: # Replace with a single Open Collective username e.g., user1
 ko_fi: adeeteya
+tidelift: # Replace with a single Tidelift platform-name/package-name e.g., npm/babel
+polar: # Replace with a single Polar username e.g., user1
+buy_me_a_coffee: adeeteya
+thanks_dev: # Replace with a single thanks.dev username e.g., u/gh/user1
+community_bridge: # Replace with a single Community Bridge project-name e.g., cloud-foundry
 liberapay: adeeteya
-custom: ['https://www.buymeacoffee.com/adeeteya','https://www.paypal.me/adityar224']
+issuehunt: # Replace with a single IssueHunt username e.g., user1
+otechie: # Replace with a single Otechie username e.g., user1
+custom: ['https://www.paypal.me/adityar224']
