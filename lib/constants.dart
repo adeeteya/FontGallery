@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const kDefaultText = "Whereas Recognition of the Inherent Dignity";
+const kDefaultText = "The quick brown fox jumps over the lazy dog";
 
 const kLightSplashColor = Color(0xFFF9F9F9);
 const kLightDividerColor = Color(0xFFDADCE0);
