@@ -1,0 +1,5 @@
+<i>Font Gallery</i> zeigt, wie verschiedene Schriftfamilien mit ihren verschiedenen Variationen (Stil, Gewicht und Größe) aussehen. Sie können zwischen hellen und dunklen Modi wechseln und auch verschiedene Schriftfamilien vergleichen.
+
+Es gibt eine praktische Suchfunktion, mit der Sie ganz einfach nach Ihren bevorzugten Schriftarten suchen können, und der Text zum Vergleichen der Schriftarten kann auch in einen benutzerdefinierten, vom Benutzer festgelegten Text geändert werden.
+
+Die Schriftarten stammen von Google Fonts und sogar die Informationen zum Autor der Schriftart werden angezeigt.
